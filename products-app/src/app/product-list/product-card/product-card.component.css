@@ -1,0 +1,16 @@
+.stars {
+  color: green;
+}
+
+.bttun:hover {
+  background-color: rgb(36, 59, 36);
+}
+
+.image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  border-radius: 2px;
+}
+
+.desc {
+  height: 50px;
+}
