@@ -1,11 +1,26 @@
 <nav class="navbar bg-body-secondary cursorr">
   <div class="container-fluid">
-    <a class="navbar-brand text-primary fs-3 fw-bold">Product App</a>
+    <a
+      class="navbar-brand fs-3 fw-bold"
+      routerLink="/products"
+      routerLinkActive="text-success-emphasis"
+      >Product App</a
+    >
     <div class="me-2 d-flex">
-      <a class="me-2 pointer-event text-decoration-none text-dark">Register</a>
-      <a class="me-2 text-decoration-none text-dark">Login</a>
-      <div>
-        <i class="fa-solid fa-cart-shopping me-2 text-primary text-center"></i>
+      <a
+        class="me-2 text-decoration-none text-dark"
+        routerLink="/register"
+        routerLinkActive="text-success-emphasis"
+        >Register</a
+      >
+      <a
+        class="me-2 pointer-event text-decoration-none text-dark"
+        routerLink="/login"
+        routerLinkActive="text-success-emphasis"
+        >Login</a
+      >
+      <div routerLink="/cart" routerLinkActive="text-success-emphasis">
+        <i class="fa-solid fa-cart-shopping me-2 text-center"></i>
       </div>
     </div>
   </div>

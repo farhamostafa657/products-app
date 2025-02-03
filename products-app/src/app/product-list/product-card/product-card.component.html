@@ -22,7 +22,9 @@
         <p class="card-title text-truncate mt-2 text-info-emphasis fw-bold">
           {{ productItem.title | uppercase }}
         </p>
-        <h5 class="fw-semibold mt-2">{{ productItem.price }}$</h5>
+        <h5 class="fw-semibold mt-2">
+          {{ productItem.price | currency : "EGP" : "code" }}
+        </h5>
       </div>
 
       <div class="desc d-flex justify-content-center align-item-center">
