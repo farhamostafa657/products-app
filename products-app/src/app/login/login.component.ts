@@ -9,11 +9,13 @@ import { RouterLink } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  submitted: boolean = false;
   formValues = {
     email: '',
     password: '',
   };
   handleSubmiForm(form: any) {
+    this.submitted = true;
     console.log(form);
   }
 }

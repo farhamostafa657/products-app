@@ -15,7 +15,21 @@
             class="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
+            name="email"
+            [(ngModel)]="formValues.email"
+            required
+            pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+            #email="ngModel"
           />
+          @if(email.invalid&&(email.touched|| submitted )){
+          <div class="form-text text-danger ms-3">
+            @if(email.hasError('required')){
+            <span>Email is required</span>
+            }@else if (email.hasError('pattern')) {
+            <span>write valid email</span>
+            }
+          </div>
+          }
         </div>
         <div class="mb-3 fw-bold">
           <label for="exampleFormControlTextarea1" class="form-label"
@@ -25,11 +39,22 @@
             class="form-control"
             id="exampleFormControlTextarea1"
             type="password"
+            name="password"
+            [(ngModel)]="formValues.password"
+            required
+            #password="ngModel"
           />
+          @if(password.invalid&&(password.touched || submitted)){
+          <div class="form-text text-danger ms-3">
+            @if(password.hasError('required')){
+            <span>password is required</span>
+            }
+          </div>
+          }
         </div>
 
         <div>
-          <button class="btns w-100 rounded-4">Login</button>
+          <button class="btns w-100 rounded-4" type="submit">Login</button>
         </div>
       </form>
     </div>
@@ -46,3 +71,14 @@
     </span>
   </div>
 </div>
+
+<!-- Template Forms -->
+<!-- TS -> import FormsModule -->
+<!-- HTML -> <form #reference="ngForm" (ngSubmit)="function(reference)"> -->
+<!-- HTML -> <field name="fieldName" ngModel></field> -->
+
+<!-- Validation -->
+
+<!-- Validation HTML- >Required, min, max, pattern -->
+<!-- Define #field="ngModel" -->
+<!-- if() -->
