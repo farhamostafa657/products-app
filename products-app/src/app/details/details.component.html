@@ -77,12 +77,14 @@
               >
                 {{ productDetails.category }}
               </button>
+              @if(productDetails.brand){
               <button
                 class="btn btn-outline-secondary rounded-5 px-4 fw-bolder"
                 disabled
               >
                 {{ productDetails.brand }}
               </button>
+              }
             </div>
           </div>
           <hr />
