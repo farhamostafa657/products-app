@@ -1,0 +1,33 @@
+.btns {
+  border: 2px solid rgb(22, 33, 22);
+  background-color: white;
+}
+.btns:hover {
+  background-color: rgb(31, 45, 31);
+  color: white;
+}
+
+.glasses {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.page {
+  background-image: url("../../../public/assets/login.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+label {
+  color: rgb(46, 65, 46);
+}
+
+.login {
+  color: rgb(46, 65, 46);
+}
