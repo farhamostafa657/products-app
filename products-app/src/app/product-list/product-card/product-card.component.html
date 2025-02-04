@@ -1,8 +1,10 @@
 <div class="col">
-  <div class="card d-flex flex-column h-100 mb-3 mt-1 rounded-4">
+  <div class="card d-flex flex-column h-100 mb-3 mt-1">
     <div class="position-relative">
       @if (productItem.stock == 0) {
-      <button class="btn btn-danger w-25 mt-2 ms-2">Out of stock</button>
+      <button class="btn btn-danger mt-2 ms-1 px-3 position-absolute">
+        Out of stock
+      </button>
       } @else {
       <button class="btn btn-success w-25 mt-2 ms-2 position-absolute">
         In stock
@@ -40,9 +42,18 @@
         <i class="fa-solid fa-star-half-stroke"></i>
       </div>
 
-      <button class="btn btn-outline-dark w-50 rounded-5 mt-2 bttun">
-        Add to Cart
-      </button>
+      <div class="d-flex justify-content-between align-content-center">
+        <button
+          class="btn btn-outline-dark rounded-5 mt-2 bttun"
+          (click)="handleRedirectToDetails(productItem.id)"
+        >
+          View
+        </button>
+
+        <button class="btn btn-outline-dark w-50 rounded-5 mt-2 bttun">
+          Add to Cart
+        </button>
+      </div>
     </div>
   </div>
 </div>
