@@ -1,52 +1,119 @@
 <div class="page d-flex flex-column justify-content-center">
   <div class="container border border-opacity-75 w-50 rounded-4 glasses my-5">
     <div class="mx-auto mt-5 mb-5">
-      <div class="mb-3 fw-bold">
-        <label for="exampleFormControlInput1" class="form-label">Name</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" />
-      </div>
+      <form [formGroup]="registForm" (ngSubmit)="handleSubmitForm()">
+        <div class="mb-3 fw-bold">
+          <label for="exampleFormControlInput1" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            formControlName="registerName"
+          />
+          <div class="form-text text-danger">
+            @if(formControl['registerName'].invalid&&
+            (formControl['registerName'].touched || submitted)){ @if(
+            formControl['registerName'].hasError('required') ){
+            <span>Name is Required</span>
+            } }
+          </div>
+        </div>
 
-      <div class="mb-3 fw-bold">
-        <label for="exampleFormControlInput2" class="form-label">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleFormControlInput2"
-          placeholder="name@example.com"
-        />
-      </div>
+        <div class="mb-3 fw-bold">
+          <label for="exampleFormControlInput2" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput2"
+            placeholder="name@example.com"
+            formControlName="registerEmail"
+          />
+          <div class="form-text text-danger">
+            @if(formControl['registerEmail'].invalid&&
+            (formControl['registerEmail'].touched || submitted)){
+            @if(formControl['registerEmail'].hasError('required')){
+            <span>Email is required</span>
+            } }@else if (formControl['registerEmail'].hasError('pattern')) {
+            <span>whrite a valid email</span>
+            }
+          </div>
+        </div>
 
-      <div class="mb-3 fw-bold">
-        <label for="exampleFormControlInput3" class="form-label"
-          >User Name</label
+        <div class="mb-3 fw-bold">
+          <label for="exampleFormControlInput3" class="form-label"
+            >User Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput3"
+            formControlName="registerUserName"
+          />
+        </div>
+
+        <div class="form-text text-danger">
+          @if (formControl['registerUserName'].invalid &&
+          (formControl['registerUserName'].touched ||submitted)) { @if
+          (formControl['registerUserName'].hasError('required')) {
+          <span>User name is required</span>
+          }@else if (formControl['registerUserName'].hasError('pattern')) {
+          <span>user name shouldnot has spaces</span>
+          } }
+        </div>
+
+        <div class="mb-3 fw-bold">
+          <label for="exampleFormControlInput4" class="form-label"
+            >Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="exampleFormControlInput4"
+            formControlName="registerPassword"
+          />
+        </div>
+        <div class="form-text text-danger">
+          @if (formControl['registerPassword'].invalid &&
+          (formControl['registerPassword'].touched ||submitted)) { @if
+          (formControl['registerPassword'].hasError('required')) {
+          <span>password is required</span>
+          }@else if (formControl['registerPassword'].hasError('pattern')) {
+          <span>
+            Password must be at least 8 characters long, contain an uppercase
+            letter, a lowercase letter, a number, and a special character .
+          </span>
+          } }
+        </div>
+
+        <div class="mb-3 fw-bold">
+          <label for="exampleFormControlInput5" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="exampleFormControlInput5"
+            formControlName="registerConfirmPassword"
+          />
+        </div>
+        <div class="form-text text-danger">
+          @if (formControl['registerConfirmPassword'].invalid &&
+          (formControl['registerConfirmPassword'].touched || submitted)) { @if
+          (formControl['registerConfirmPassword'].hasError('required')) {
+          <span>Confirm password is required</span>
+          } }
+        </div>
+        <span
+          *ngIf="registForm.hasError('passwordMisMatch') && registForm.touched"
+          style="color: red"
         >
-        <input type="text" class="form-control" id="exampleFormControlInput3" />
-      </div>
+          Passwords do not match.
+        </span>
 
-      <div class="mb-3 fw-bold">
-        <label for="exampleFormControlInput4" class="form-label"
-          >Password</label
-        >
-        <input
-          type="email"
-          class="form-control"
-          id="exampleFormControlInput4"
-        />
-      </div>
-
-      <div class="mb-3 fw-bold">
-        <label for="exampleFormControlInput5" class="form-label"
-          >Confirm Password</label
-        >
-        <input
-          type="email"
-          class="form-control"
-          id="exampleFormControlInput5"
-        />
-      </div>
-      <div>
-        <button class="btns w-100 rounded-4" type="submit">Register</button>
-      </div>
+        <div>
+          <button class="btns w-100 rounded-4" type="submit">Register</button>
+        </div>
+      </form>
     </div>
 
     <div class="d-flex justify-content-center align-content-center mt-5 mb-3">
