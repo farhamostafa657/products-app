@@ -12,4 +12,8 @@ export class ProducRequestService {
   getProductList(): Observable<any> {
     return this.http.get(`${environment.baseURL}/products`);
   }
+
+  getProductDetails(id: string) {
+    return this.http.get(`${environment.baseURL}/products/${id}`);
+  }
 }
