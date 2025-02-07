@@ -20,7 +20,16 @@
         >Login</a
       >
       <div routerLink="/cart" routerLinkActive="text-success-emphasis">
-        <i class="fa-solid fa-cart-shopping me-2 text-center"></i>
+        <i
+          class="fa-solid fa-cart-shopping me-2 text-center position-relative fs-5"
+        >
+          @if(counter>0){
+          <span
+            class="counter position-absolute top-0 start-100 translate-middle bg-danger border border-light rounded-circle p-1"
+            >{{ counter }}
+          </span>
+          }
+        </i>
       </div>
     </div>
   </div>
